@@ -1,2 +1,28 @@
-<h1>User::Words#show</h1>
-<p>Find me in app/views/user/words/show.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <h2>単語詳細 <i class="fas fa-user-edit"></i></h2>
+           <div class="card w-96 bg-base-100 shadow-xl mt-3">
+              <div class="card-body">
+                <h2 class="card-title"><%= @word.cn_word%></h2>
+                <p><%= @word.jp_word %></p>
+                <p><%= @word.supplement %></p>
+                <div class="card-actions justify-end">
+                <% if @word.user_id == current_user.id %>
+                  <%= link_to "編集", edit_word_path, class: 'btn btn-primary mr-5' %>
+                  <%= link_to "削除", word_path, method: :delete, class: "btn btn-danger" %>
+                <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mockup-phone">
+          <div class="camera"></div> 
+          <div class="display">
+          <div class="artboard artboard-demo phone-1">Hi.</div>
+        </div>
+   </div>
+    </div>
+</div>

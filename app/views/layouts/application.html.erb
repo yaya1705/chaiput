@@ -11,6 +11,56 @@
   </head>
 
   <body>
+      <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+          <%= link_to root_path, class: "navbar-brand" do %>
+           <%= image_tag "ビジネスマンアイコン.jpeg"%> <h3 class="ml-3">Chaiput</h3>
+          <% end %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+
+            <li class="nav-item">
+              <%= link_to 'マイページ', user_path(current_user.id), class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '単語投稿', words_path , class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'ブックマーク', book_marks_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
+            <% elsif admin_signed_in? %>
+
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
+
+            <% else %>
+
+            <li class="nav-item">
+              <%= link_to '単語投稿', words_path , class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_user_session_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
+
+            <% end %>
+            </ul>
+          </div>
+
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
