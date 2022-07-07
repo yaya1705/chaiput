@@ -33,3 +33,50 @@
 .table-demo th {
     background-color: #f5f5f5;
 }
+
+h1 {
+  position: relative;
+  text-align: center;
+  border: 3px solid #000;
+}
+
+h1:before,
+h1:after {
+  position: absolute;
+  content: '';
+}
+
+h1:before {
+  top: 4px;
+  left: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  background: #f8f8f8;
+}
+
+h1 span {
+  position: relative;
+  display: block;
+  padding: 2rem;
+  letter-spacing: .05em;
+  color: #fff;
+  text-shadow: #000 2px 0, #000 -2px 0, #000 0 -2px, #000 0 2px, #000 2px 2px, #000 -2px 2px, #000 2px -2px, #000 -2px -2px, #000 1px 2px, #000 -1px 2px, #000 1px -2px, #000 -1px -2px, #000 2px 1px, #000 -2px 1px, #000 2px -1px, #000 -2px -1px, 4px 4px 0 #000, 0 4px 0 #000;
+}
+
+h1 span:before,
+h1 span:after {
+  position: absolute;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: 2px;
+  content: '';
+  background: #000;
+}
+
+h1 span:before {
+  top: 15px;
+}
+
+h1 span:after {
+  bottom: 15px;
+}

@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2022_07_03_135448) do
   create_table "words", force: :cascade do |t|
     t.string "cn_word", null: false
     t.string "jp_word", null: false
-    t.string "supplement", null: false
+    t.string "supplement"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -4,10 +4,8 @@ class CreateWords < ActiveRecord::Migration[6.1]
 
       t.string :cn_word, null: false
       t.string :jp_word, null: false
-      t.string :supplement, null: false
+      t.string :supplement, null: true
       t.integer :user_id
-      
-
       t.timestamps
     end
   end
