@@ -9,11 +9,19 @@ Rails.application.routes.draw do
   sessions: 'users/sessions'
 }
 
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+
   scope module: :user do
     root to: 'homes#top'
-    resources :words, only:[:index,:show,:new,:create,:edit,:update,:destroy]
-    resources :users, only:[:show,:edit,:update]
+    resources :words, only:[:index,:show,:new,:create,:edit,:update,:destroy] do
+    resources :example_sentences, only:[:create,:destroy]do
     resource :favorites, only:[:create,:destroy]
+  end
+  end
+
+    resources :users, only:[:show,:edit,:update]
     resource :book_marks, only:[:create,:destroy]
     resources :book_marks, only:[:index]
 

@@ -16,3 +16,20 @@
  padding: 10px;
  border: solid 1px #778ca3;
 }
+
+.table-demo {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.table-demo th,
+.table-demo td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.table-demo th {
+    background-color: #f5f5f5;
+}

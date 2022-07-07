@@ -16,19 +16,25 @@ class User::WordsController < ApplicationController
       render :index
     end
   end
-  
+
   def edit
+    @word = Word.find(params[:id])
   end
-  
+
   def update
   end
-  
+
   def destroy
+    @word = Word.find(params[:id])
+    @word.destroy
+    redirect_to words_path
   end
   
 
   def show
     @word = Word.find(params[:id])
+    @example_sentence = ExampleSentence.new
+    @example_sentences = @word.example_sentences
   end
 
   private

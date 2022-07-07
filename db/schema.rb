@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2022_07_03_135448) do
   end
 
   create_table "book_marks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "example_sentence_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -38,8 +40,9 @@ ActiveRecord::Schema.define(version: 2022_07_03_135448) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "example_sentences_id"
+    t.integer "user_id", null: false
+    t.integer "word_id", null: false
+    t.integer "example_sentence_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -48,8 +51,8 @@ ActiveRecord::Schema.define(version: 2022_07_03_135448) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
-    t.string "homeland_language", null: false
-    t.string "learning_language", null: false
+    t.string "homeland_language"
+    t.string "learning_language"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

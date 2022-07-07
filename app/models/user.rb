@@ -9,11 +9,20 @@ class User < ApplicationRecord
          has_many :favorites, dependent: :destroy
          has_many :book_marks, dependent: :destroy
 
+        # has_many :sentence_book_mark, through: :book_mark, source: example_sentence
+
          # バリテーション
          validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true, presence: true
 
         # ユーザーのプロフィール画像
          has_one_attached :profile_image
+
+         def self.guest
+            find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
+              user.password = SecureRandom.urlsafe_base64
+              user.name = "guestuser"
+         end
+         end
 
          def get_profile_image(width, height)
           unless profile_image.attached?

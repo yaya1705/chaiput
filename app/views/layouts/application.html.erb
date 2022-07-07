@@ -55,6 +55,9 @@
               <%= link_to "ログイン", new_user_session_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>
             </li>
 
+            <li class="nav-item">
+              <%= link_to '（ゲスト）', users_guest_sign_in_path, class: "btn btn-secondary btn-lg btn-block mb-3 sign_in", method: :post %>
+            </li>
             <% end %>
             </ul>
           </div>
