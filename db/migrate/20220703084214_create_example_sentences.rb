@@ -3,6 +3,7 @@ class CreateExampleSentences < ActiveRecord::Migration[6.1]
     create_table :example_sentences do |t|
 
       t.string :sentences, null: false
+      t.string :sentences_jp, null: false
       t.integer :word_id
       t.integer :user_id
       t.timestamps

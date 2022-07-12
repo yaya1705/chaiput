@@ -2,7 +2,8 @@ class User::WordsController < ApplicationController
 
   def index
     @word = Word.new
-    @words = Word.all
+    @words = Word.page(params[:page]).per(10)
+    @page =  params[:page] ? (params[:page].to_i - 1) * 10 : 0
   end
 
   def create
@@ -29,17 +30,21 @@ class User::WordsController < ApplicationController
     @word.destroy
     redirect_to words_path
   end
-  
+
 
   def show
     @word = Word.find(params[:id])
     @example_sentence = ExampleSentence.new
     @example_sentences = @word.example_sentences
+    @current_user = current_user || current_admin
   end
+
+
 
   private
 
   def word_params
-    params.require(:word).permit(:jp_word, :cn_word, :supplement)
+    params.require(:word).permit(:jp_word, :cn_word, :supplement, :jp_word_1, :pinyin)
   end
+
 end

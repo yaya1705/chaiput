@@ -1,52 +1,67 @@
 <div class="container">
-  <div class="row mt-5">
-    <div class="col-5">
+  <div class="row mt-5 mb-5">
+     <div class="col-5 mr-3">
       <h2>単語投稿</h2>
-      <%= form_with model: @word, url: words_path do |f| %>
-      <div class="form-group row mt-3">
+       <%= form_with model: @word, url: words_path do |f| %>
+      <ul class="cp_list" title="">
+    	<li>
+    	  <div class="form-group row mt-3">
+        <label class="col-sm-3">拼音</label>
+        <div class="col-sm-8">
+          <%= f.text_field :pinyin, placeholder: "hěn hǎo",class: "form-control"%>
+        </div>
+      </div>
+     </li>
+      <li>
+        <div class="form-group row mt-3">
         <label class="col-sm-3">中国語(chinese)</label>
         <div class="col-sm-8">
-          <%= f.text_field :cn_word, placeholder: "朋友"%>
+          <%= f.text_field :cn_word, placeholder: "朋友",class: "form-control"%>
         </div>
       </div>
-      <div class="form-group row">
+     </li>
+      <li>
+        <div class="form-group row">
         <label class="col-sm-3">日本語(japanese)</label>
         <div class="col-sm-8">
-          <%= f.text_field :jp_word, placeholder: "友達"%>
+          <%= f.text_field :jp_word, placeholder: "友達", class: "form-control"%>
         </div>
       </div>
-      <div class="form-group row">
-        <label class="col-sm-3">メモ</label>
-        <div class="col-sm-8">
-          <%= f.text_area :supplement, size: "30x4",placeholder: "老朋友=古くからの友人"%>
-        </div>
-      </div>
-       <div class="form-group row">
+      </li>
+      <li>
+        <div class="form-group row">
          <label class="col-sm-3"></label>
          <div class="co-l-sm-8 ml-3">
            <%= f.submit "単語追加", class: "btn btn-success" %>
          </div>
     </div>
-    <% end %>
+      </li>
+　　</ul>
     </div>
-    <div class="col-6 ml-4 mt-2">
+      <% end %>
+    <div class="col-6 mt-2 ml-3">
       <h2>単語帳</h2>
-      <table class="design01 mt-3">
-        <tr>
-          <th></th>
-          <th>中国語</th>
-          <th>日本語</th>
-        </tr>
-        <% @words.each do |word| %>
-        <tr>
-          <td><%= word.id %></td>
-          <td>
-            <%= link_to word.cn_word, word_path(word) %>
-          </td>
-          <td><%= word.jp_word %></td>
-        </tr>
+
+           <table class="design01 mt-3">
+            <tr>
+              <th></th>
+              <th>中国語</th>
+              <th>拼音</th>
+            </tr>
+            <% @words.each do |word| %>
+            <tr>
+              <td>
+              <%= @page += 1 %>
+              </td>
+              <td>
+                <%= link_to word.cn_word, word_path(word) %>
+              </td>
+              <td><%= word.pinyin %></td>
+            </tr>
         <% end %>
       </table>
+       <%= paginate @words %>
     </div>
+
   </div>
 </div>

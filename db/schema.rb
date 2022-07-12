@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2022_07_03_135448) do
 
   create_table "example_sentences", force: :cascade do |t|
     t.string "sentences", null: false
+    t.string "sentences_jp", null: false
     t.integer "word_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -51,8 +52,6 @@ ActiveRecord::Schema.define(version: 2022_07_03_135448) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
-    t.string "homeland_language"
-    t.string "learning_language"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -65,6 +64,8 @@ ActiveRecord::Schema.define(version: 2022_07_03_135448) do
   create_table "words", force: :cascade do |t|
     t.string "cn_word", null: false
     t.string "jp_word", null: false
+    t.string "jp_word_1"
+    t.string "pinyin"
     t.string "supplement"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false

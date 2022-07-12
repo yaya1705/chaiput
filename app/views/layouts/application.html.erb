@@ -24,6 +24,11 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
 
+
+            <li class="nav-item mr-5 d-flex">
+               <%= render 'user/searches/form' %>
+            </li>
+
             <li class="nav-item">
               <%= link_to 'マイページ', user_path(current_user.id), class: 'btn btn-outline-secondary btn-lg mr-3' %>
             </li>
@@ -38,7 +43,9 @@
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary btn-lg mr-3' %>
             </li>
             <% elsif admin_signed_in? %>
-
+             <li class="nav-item">
+              <%= link_to '単語投稿', words_path , class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-outline-secondary btn-lg mr-3' %>
             </li>
@@ -61,10 +68,29 @@
             <% end %>
             </ul>
           </div>
-
       </nav>
     </header>
     <%= yield %>
+ <footer class="pt-3 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+
+          </div>
+          <div class="col-md-8">
+            <h6 class="text-white mt-2 mb-3">Link</h6>
+            <ul class="p-0 list-unstyled">
+              <li>
+                <a href="" title="About" class="text-white-50">会社概要</a>
+              </li>
+              <li>
+                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
 

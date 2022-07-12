@@ -1,0 +1,17 @@
+<h2>Results index</h2>
+
+<table class="table table-hover table-inverse">
+  <!--検索対象モデルがWordの時 -->
+  
+    <tbody>
+      <% @words.each do |word| %>
+        <tr>
+          <td><%= word.cn_word %></td>
+          <% word.example_sentences.each do |example| %>
+          <td><%= example.sentences %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  
+</table>

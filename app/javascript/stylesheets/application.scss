@@ -80,3 +80,121 @@ h1 span:before {
 h1 span:after {
   bottom: 15px;
 }
+
+body {
+    background-color: #FFFFFF;
+}
+
+header {
+    background-color: #92B4EC;
+}
+
+footer {
+    background-color: #FFD24C;
+}
+
+.profile-img {
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.card-container {
+    max-width: 430px;
+    padding: 40px 40px;
+    background-color: #F7F7F7;
+    margin: 0 auto 25px;
+    margin-top: 20px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgb(0 0 0 / 30%);
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 30%);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.session {
+    font-style: italic;
+}
+
+ul.cp_list {
+	position: relative;
+	padding: 0 0.5em;
+	margin-top: 1em;
+	list-style-type: none;
+	border: solid 2px #00796B;
+}
+ul.cp_list::after {
+	position: absolute;
+	content:attr(title);
+	padding: 1px 7px;
+	letter-spacing: 0.05em;
+	font-weight: bold;
+	font-size: .8em;
+	background: #00796B;
+	color: #fff;
+	bottom: 100%;
+	left: -2px;
+	border-radius: 4px 4px 0px 0px;
+}
+ul.cp_list li {
+	line-height: 1.5;
+	padding: 0.5em 0 0.5em 1.4em;
+	border-bottom: 1px dashed #4DB6AC;
+}
+ul.cp_list li::before {
+	position: absolute;
+	content:'';
+
+}
+ul.cp_list {
+    position: relative;
+    padding: 0 0.5em;
+    margin-top: 2em;
+    list-style-type: none;
+    border: solid 2px #00796B;
+    }
+    ul.cp_list::after {
+    position: absolute;
+    content:attr(title);
+    padding: 1px 7px;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    font-size: .8em;
+    background: #00796B;
+    color: #fff;
+    bottom: 100%;
+    left: -2px;
+    border-radius: 4px 4px 0px 0px;
+    }
+    ul.cp_list li {
+    line-height: 1.5;
+    padding: 0.5em 0 0.5em 1.4em;
+    border-bottom: 1px dashed #4DB6AC;
+    }
+    // ul.cp_list li::before {
+    // position: absolute;
+    // content: "\002713";
+    // color: #00796B;
+    // font-weight: bold;
+    // left : 0.5em;
+    // }
+    
+    ul.cp_list li:last-of-type {
+    border-bottom: none;
+    content: "\002713";
+    	color: #00796B;
+    // 	font-weight: bold;
+    	left : 0.5em;
+    }
+    ul.cp_list li:last-of-type {
+    	border-bottom: none;
+    }
+    
+    

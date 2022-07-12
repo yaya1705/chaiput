@@ -17,11 +17,17 @@ class User::ExampleSentencesController < ApplicationController
     redirect_to words_path
   end
 
+  def index
+    @word = Word.find(params[:word_id])
+    @example_sentences = @word.example_sentences
+    @current_user = current_user || current_admin
+  end
+
 
 
   private
 
   def example_sentence_params
-    params.require(:example_sentence).permit(:sentences)
+    params.require(:example_sentence).permit(:sentences, :sentences_jp)
   end
 end
