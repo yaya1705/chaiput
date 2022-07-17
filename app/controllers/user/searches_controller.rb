@@ -3,10 +3,8 @@ class User::SearchesController < ApplicationController
 
   def search
 
-    example_sentences = ExampleSentence.where('sentences like ?', "%#{params[:word]}%")
-    @words = Word.where('cn_word like ?', "%#{params[:word]}%").or(
-      Word.where(id: example_sentences.pluck(:word_id))
-    )
+   @example_sentences = ExampleSentence.where('sentences like ?', "%#{params[:word]}%").page(params[:page]).per(5)
+   @words = Word.where('cn_word like ?', "%#{params[:word]}%").page(params[:page]).per(5)
 
     # @range = params[:range]
     # if @range == "Word"

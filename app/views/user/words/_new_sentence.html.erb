@@ -1,0 +1,23 @@
+ <% example_sentences_new.each do |example_sentence| %>
+ 
+     <h2 class="text-center mt-4">【例文詳細】</h2>
+      <div class="card shadow text-center mt-2 mb-2" style="width: 45rem;">
+         <div class="card-body">
+          <!--<h5 class="card-title">【例文】</h5>-->
+          <h5 class="card-text mb-3"><%= example_sentence.sentences %></h5>
+          <p><%= example_sentence.sentences_jp %></p>
+          <div class="d-flex justify-content-center">
+          　<p>
+            <% if example_sentence.user_id == @current_user.id %>
+              <!--パスの後に引数を入れる(投稿(アソシエーションの記述)、コメント)-->
+               <%= link_to "削除", word_example_sentence_path(example_sentence.word,example_sentence), method: :delete, remote: true %>
+                /
+              <% end %>
+              </p>
+              <p id="favorite-btn_<%= example_sentence.id %>">
+            <%= render "user/favorites/favorite-btn",example_sentence: example_sentence %>
+          </p>
+          </div>
+       </div>
+    </div>
+ <% end %>

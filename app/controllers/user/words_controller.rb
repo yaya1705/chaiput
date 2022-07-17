@@ -23,6 +23,9 @@ class User::WordsController < ApplicationController
   end
 
   def update
+    @word = Word.find(params[:id])
+    @word.update(word_params)
+    redirect_to word_path(@word)
   end
 
   def destroy
@@ -36,6 +39,7 @@ class User::WordsController < ApplicationController
     @word = Word.find(params[:id])
     @example_sentence = ExampleSentence.new
     @example_sentences = @word.example_sentences
+    @example_sentences_new = @word.example_sentences.last(1)
     @current_user = current_user || current_admin
   end
 

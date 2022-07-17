@@ -22,7 +22,13 @@ Rails.application.routes.draw do
   end
   end
 
-    resources :users, only:[:show,:edit,:update]
+    resource :users, only:[:show,:edit,:update] do
+      patch "withdrawal" => "users#withdrawal"
+     member do
+    get "favorites"
+    end
+  end
+
     resource :book_marks, only:[:create,:destroy]
     resources :book_marks, only:[:index]
     get "search" => "searches#search"
@@ -30,7 +36,7 @@ Rails.application.routes.draw do
 
    namespace :admins do
      resources :words, only:[:index,:destroy]
+     resources :users, only: [:index, :update,:edit]
    end
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

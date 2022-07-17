@@ -1,0 +1,32 @@
+<div class="container">
+  <table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col" class="w-25">ID</th>
+        <th scope="col">名前</th>
+        <th scope="col">メールアドレス</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <th scope="row"><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+              <% if user.is_deleted %>
+              <div>退会済み</div>
+              <% else %>
+              <div>利用中</div>
+              <% end %>
+
+        </td>
+        <td><%= link_to "編集", edit_admins_user_path(user) %></td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

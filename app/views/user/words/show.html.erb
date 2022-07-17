@@ -32,19 +32,14 @@
      </div>
 
     </div>
-    <div class="col-8 justify-content-around">
+    <div class="col-6 justify-content-around">
       <h2 class="text-center mt-3">【例文追加】</h2>
       <div class="card shadow text-center" style="width: 45rem;">
          <div class="card-body">
           <!--<h5 class="card-title">【例文】</h5>-->
-           <div class="comment mt-1">
-               <%= form_with model:[@word,@example_sentence], url: word_example_sentences_path(@word) do |f| %>
-               <label>中国語：</label>
-               <%= f.text_field :sentences, size: "35x1", placeholder: "你的中文說得很好" %> <br>
-               <label>日本語：</label>
-               <%= f.text_field :sentences_jp, size: "35x1",class: "mt-2",placeholder: "あなたは中国語を話すのが上手です" %> <br>
-               <%= f.submit "例文追加", class: "btn btn-success mt-2"%> <br>
-               <% end %>
+           <div class="new-comment mt-1">
+             <%= render 'user/words/form', word: @word,example_sentence: @example_sentence %>
+
            </div>
           <p class="card-text"></p>
           <p></p>
@@ -52,35 +47,12 @@
        </div>
     </div>
 
-    <% @example_sentences.each do |example_sentence| %>
-     <h2 class="text-center mt-4">【例文詳細】</h2>
-      <div class="card shadow text-center mt-2 mb-2" style="width: 45rem;">
-         <div class="card-body">
-          <!--<h5 class="card-title">【例文】</h5>-->
-          <h5 class="card-text mb-3"><%= example_sentence.sentences %></h5>
-          <p><%= example_sentence.sentences_jp %></p>
-          <p><% if example_sentence.user_id == @current_user.id %>
-              <!--パスの後に引数を入れる(投稿(アソシエーションの記述)、コメント)-->
-               <%= link_to "削除", word_example_sentence_path(example_sentence.word,example_sentence), method: :delete%>
-                /
-              <% end %>
-
-              <% if example_sentence.favorited_by?(current_user) %>
-              <%= link_to word_example_sentence_favorites_path(example_sentence.word,example_sentence), method: :delete do %>
-                <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-                    <%= example_sentence.favorites.count %>
-                  <% end %>
-                <% else %>
-                <%= link_to word_example_sentence_favorites_path(example_sentence.word,example_sentence), method: :post do %>
-                  <i class="fas fa-heart" aria-hidden="true"></i>
-                  <%= example_sentence.favorites.count %>
-                  <% end %>
-                <% end %>
-              </p>
-       </div>
-    </div>
-     <% end %>
+    <div id="new-sentences">
+      <%= render 'user/words/new_sentence',word: @word, example_sentence: @example_sentence, example_sentences_new: @example_sentences_new %>
+     </div>
+     <% if @example_sentences.exists?%>
      <%= link_to "例文一覧ページ", word_example_sentences_path(word_id: @word.id) %>
+     <% end %>
     </div>
   </div>
 </div>

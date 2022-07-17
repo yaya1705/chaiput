@@ -1,34 +1,5 @@
 <div class="container">
-  <div class="row">
-    <div class="col-8 justify-content-around">
-      <% @example_sentences.each do |example_sentence| %>
-     <h2 class="text-center mt-4">【例文詳細】</h2>
-      <div class="card shadow text-center mt-2 mb-2" style="width: 45rem;">
-         <div class="card-body">
-          <!--<h5 class="card-title">【例文】</h5>-->
-          <h5 class="card-text mb-3"><%= example_sentence.sentences %></h5>
-          <p><%= example_sentence.sentences_jp %></p>
-          <p><% if example_sentence.user_id == @current_user.id %>
-              <!--パスの後に引数を入れる(投稿(アソシエーションの記述)、コメント)-->
-               <%= link_to "削除", word_example_sentence_path(example_sentence.word,example_sentence), method: :delete%>
-                /
-              <% end %>
-
-              <% if example_sentence.favorited_by?(current_user) %>
-              <%= link_to word_example_sentence_favorites_path(example_sentence.word,example_sentence), method: :delete do %>
-                <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-                    <%= example_sentence.favorites.count %>
-                  <% end %>
-                <% else %>
-                <%= link_to word_example_sentence_favorites_path(example_sentence.word,example_sentence), method: :post do %>
-                  <i class="fas fa-heart" aria-hidden="true"></i>
-                  <%= example_sentence.favorites.count %>
-                  <% end %>
-                <% end %>
-              </p>
-       </div>
-    </div>
-     <% end %>
-    </div>
+  <div class="row" id="sentence-index">
+   <%= render "user/example_sentences/index",word: @word, example_sentence: @example_sentence, example_sentences_new: @example_sentences_new %>
   </div>
 </div>

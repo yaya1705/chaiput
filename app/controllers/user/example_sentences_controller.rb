@@ -7,23 +7,25 @@ class User::ExampleSentencesController < ApplicationController
     @example_sentence.user_id = current_user.id
     @example_sentence.word_id = @word.id
     @example_sentence.save
-    redirect_to word_path(@word)
+    @example_sentences_new = @word.example_sentences.last(1)
+    # redirect_to word_path(@word)
   end
 
   def destroy
      @word = Word.find(params[:word_id])
      @example_sentence = ExampleSentence.find(params[:id])
      @example_sentence.destroy
-    redirect_to words_path
+    # redirect_to word_path(@word)
+    @example_sentences_new = @word.example_sentences.last(1)
+    @current_user = current_user || current_admin
+    @example_sentences = @word.example_sentences
   end
 
   def index
     @word = Word.find(params[:word_id])
-    @example_sentences = @word.example_sentences
+    @example_sentences = @word.example_sentences.page(params[:page]).per(10)
     @current_user = current_user || current_admin
   end
-
-
 
   private
 

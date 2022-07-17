@@ -1,6 +1,27 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+header {
+  width: 100%;
+}
+
+footer {
+  position: sticky;
+  top: 100vh;
+  width: 100%;
+}
+
+
 .design01 {
  width: 100%;
  text-align: center;
@@ -185,7 +206,7 @@ ul.cp_list {
     // font-weight: bold;
     // left : 0.5em;
     // }
-    
+
     ul.cp_list li:last-of-type {
     border-bottom: none;
     content: "\002713";
@@ -196,5 +217,4 @@ ul.cp_list {
     ul.cp_list li:last-of-type {
     	border-bottom: none;
     }
-    
-    
+

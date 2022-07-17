@@ -1,10 +1,10 @@
 <div class="container">
   <div class="card card-container">
-    <h2 class="session text-center">Sign up</h2>
+    <h2 class="session text-center">ユーザー情報変更</h2>
     <div class="profile-img text-center">
       <%= image_tag "yaya.png", size: "150x150"%>
     </div>
-<%= form_with model: @user, url: edit_user_path do |f| %>
+<%= form_with model: @user, url: user_path, method: :patch do |f| %>
    <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, class: "form-control mb10"%>
@@ -19,14 +19,8 @@
     <%= f.submit "Sign up" , class: " btn btn-secondary btn-block mt-4"%>
   </div>
 <% end %>
-
   </div>
 </div>
-
-
-
-
-
 
 <div class="container">
   <div class="row mt-3">

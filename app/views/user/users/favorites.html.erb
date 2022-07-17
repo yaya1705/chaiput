@@ -1,0 +1,15 @@
+<!--いいね一覧-->
+<div class="container">
+  <div class="row">
+    <h2 class="card-text">いいね一覧</h2>
+    <div class="col-12 justify-content-around d-flex flex-wrap">
+      <% @favorite_sentences.each do |favorite|%>
+      <div class="card  shadow text-center mt-2 mb-2" style="width: 30rem;">
+        <div class="card-body">
+          <h5 class="card-text"><%= link_to favorite.sentences, word_example_sentences_path(favorite) %></h5>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
