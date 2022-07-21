@@ -14,7 +14,7 @@
       <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
           <%= link_to root_path, class: "navbar-brand" do %>
-           <%= image_tag "ビジネスマンアイコン.jpeg", size: "90x90"%> <h3 class="ml-1">Chaiput</h3>
+          <%= image_tag "yaya.png", size: "90x90"%> <h3 class="ml-1">Chaiput</h3>
           <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,13 +36,16 @@
               <%= link_to '単語投稿', words_path , class: 'btn btn-outline-secondary btn-lg mr-3' %>
             </li>
             </li>
-            <li class="nav-item">
-              <%= link_to 'ブックマーク', book_marks_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>
-            </li>
+            <!--<li class="nav-item">-->
+            <!--  <%= link_to 'ブックマーク', book_marks_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>-->
+            <!--</li>-->
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary btn-lg mr-3' %>
             </li>
             <% elsif admin_signed_in? %>
+             <li class="nav-item">
+              <%= link_to "管理者", admins_users_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
              <li class="nav-item">
               <%= link_to '単語投稿', words_path , class: 'btn btn-outline-secondary btn-lg mr-3' %>
             </li>
@@ -78,7 +81,7 @@
 
           </div>
           <div class="col-md-8">
-            <h6 class="text-white mt-2 mb-3">Link</h6>
+            <h6 class="text-white mt-2 mb-3"><%= link_to "管理者ページ", admin_session_path%></h6>
             <ul class="p-0 list-unstyled">
               <li>
                 <a href="" title="About" class="text-white-50">会社概要</a>

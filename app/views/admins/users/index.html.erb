@@ -1,5 +1,6 @@
 <div class="container">
-  <table class="table mt-5">
+    <h2 class="text-center mt-4">会員一覧ページ</h2>
+  <table class="table mt-3">
     <thead>
       <tr>
         <th scope="col" class="w-25">ID</th>
@@ -15,18 +16,17 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td>
-              <% if user.is_deleted %>
-              <div>退会済み</div>
-              <% else %>
-              <div>利用中</div>
-              <% end %>
-
+           <% if user.is_deleted %>
+            <div>退会済み</div>
+             <% else %>
+            <div>利用中</div>
+            <% end %>
         </td>
-        <td><%= link_to "編集", edit_admins_user_path(user) %></td>
+        <td><%= link_to "編集", edit_admins_user_path(user), class: "btn btn-secondary" %></td>
         </tr>
 
       <% end %>
     </tbody>
   </table>
-
 </div>
+

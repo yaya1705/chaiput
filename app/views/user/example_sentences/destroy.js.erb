@@ -1,4 +1,4 @@
-$("#new-sentences").html("<%= j(render 'user/words/new_sentence', example_sentences_new: @example_sentences_new) %>");
+$("#new-sentences").html("<%= j(render 'user/words/new_sentence', example_sentences_new: @example_sentences_new ) %>");
 $("#example_sentence_sentences").val('');
 $("#example_sentence_sentences_jp").val('');
-$("#sentence-index").html("<%= j(render 'user/example_sentences/index', example_sentences: @example_sentences ) %>");
+$("#sentence-index").html("<%= j(render 'user/example_sentences/index', example_sentences: @example_sentences, word: @word ) %>");

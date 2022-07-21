@@ -1,6 +1,8 @@
 class Admins::UsersController < ApplicationController
 
  before_action :authenticate_admin!
+# レイアウトメソッド
+ layout 'dashboard/dashboard'
 
  def index
     @users = User.all
@@ -18,11 +20,11 @@ class Admins::UsersController < ApplicationController
       flash.now[:alert] = '会員情報が更新できませんでした'
       render :edit
     end
-
-
   end
+  
 private
+
 def user_params
     params.require(:user).permit(User.attribute_names)
-  end
+end
 end

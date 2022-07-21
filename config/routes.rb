@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
   end
 
-    resource :users, only:[:show,:edit,:update] do
+    resource :users, only:[:show,:update] do
       patch "withdrawal" => "users#withdrawal"
      member do
     get "favorites"

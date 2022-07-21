@@ -5,15 +5,13 @@ class User::UsersController < ApplicationController
   def show
     #@word = Word.find(params[:id])
     @words = @user.words.page(params[:page]).per(10)
+    @page =  params[:page] ? (params[:page].to_i - 1) * 10 : 0
   end
 
   def favorites
     @favorites = @user.favorites.pluck(:example_sentence_id)
     @favorite_sentences = ExampleSentence.find(@favorites)
 
-  end
-
-  def edit
   end
 
   def update

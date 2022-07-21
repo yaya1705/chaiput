@@ -16,7 +16,8 @@
           <p></p>
       </div>
     </div>
-    <% if @word.user_id == @current_user.id %>
+
+    <% if (@current_user && @word.user_id == @current_user.id) || admin_signed_in? %>
         <div class="card shadow text-center mt-3 mb-3" style="width: 20rem; height: 6rem;">
          <div class="card-body">
           <h5 class="card-title"></h5>
@@ -27,6 +28,7 @@
       </div>
     </div>
      <% end %>
+
      <div class="mt-5">
          <%= link_to "一覧ページへ戻る", words_path %>
      </div>
@@ -50,7 +52,7 @@
     <div id="new-sentences">
       <%= render 'user/words/new_sentence',word: @word, example_sentence: @example_sentence, example_sentences_new: @example_sentences_new %>
      </div>
-     <% if @example_sentences.exists?%>
+      <% if @example_sentences.exists?%>
      <%= link_to "例文一覧ページ", word_example_sentences_path(word_id: @word.id) %>
      <% end %>
     </div>

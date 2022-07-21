@@ -1,3 +1,5 @@
+<div class="container">
+  <h2 class="text-center mt-4">ユーザー情報変更</h2>
 <%= form_with model: @user, url: admins_user_path, local: true, method: :patch do |f| %>
     <div class="row">
       <div class="col-xs-6 mx-auto">
@@ -31,3 +33,4 @@
       </div>
     </div>
   <% end %>
+</div>

@@ -1,0 +1,35 @@
+<header class="shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light">
+          <%= link_to root_path, class: "navbar-brand" do %>
+           <%= image_tag "kina.png", size: "90x90"%> <h3 class="ml-1">Chaiput</h3>
+          <% end %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+
+            <% if admin_signed_in? %>
+
+            <li class="nav-item">
+              <%= link_to "会員一覧", admins_users_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
+             <li class="nav-item">
+              <%= link_to '単語投稿', words_path , class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
+
+            <% else %>
+
+            <li class="nav-item">
+              <%= link_to "ログイン", admins_user_session_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
+
+            <% end %>
+            </ul>
+          </div>
+    </nav>
+</header>

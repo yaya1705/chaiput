@@ -1,5 +1,7 @@
 class User::WordsController < ApplicationController
 
+before_action :authenticate_user!, except:[:index,:show,:destroy]
+
   def index
     @word = Word.new
     @words = Word.page(params[:page]).per(10)
@@ -29,8 +31,11 @@ class User::WordsController < ApplicationController
   end
 
   def destroy
-    @word = Word.find(params[:id])
-    @word.destroy
+     @word = Word.find(params[:id])
+
+    if (user_signed_in? && @word.user_id == current_user.id) || admin_signed_in?
+       @word.destroy
+    end
     redirect_to words_path
   end
 
@@ -40,7 +45,7 @@ class User::WordsController < ApplicationController
     @example_sentence = ExampleSentence.new
     @example_sentences = @word.example_sentences
     @example_sentences_new = @word.example_sentences.last(1)
-    @current_user = current_user || current_admin
+    @current_user = current_user
   end
 
 
