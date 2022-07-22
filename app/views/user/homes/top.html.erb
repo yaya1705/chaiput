@@ -1,2 +1,71 @@
-<h1>User::Homes#top</h1>
-<p>Find me in app/views/user/homes/top.html.erb</p>
+<div class="container">
+ <h1 class="text-center mt-4"><span>歡迎來Chaiput</span></h1>
+  <div class="row">
+    <div class="col-6">
+      <div class="card shadow mt-4">
+        <div class="card-body">
+           <h2 class="text-center top-use">怎麼用呢?</h2>
+           <p class="text-center top-use">(どう使うの？)</p>
+           <div class="row">
+             <div class="col-2">
+               <%= image_tag "asai.png", size: "105x140"%>
+             </div>
+             <div class="col-10">
+               <p class="top-use">1.新規登録をしてマイページを作ろう！</p>
+               <p class="top-use">2.学んだ単語と例文を投稿してみよう！</p>
+               <p class="top-use">3.一覧にある単語と例文を口に出して読んでみよう！</p>
+               <p class="top-use">4.中国語で検索してみよう！</p>
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
+     <div class="col-6">
+      <div class="card shadow mt-4">
+        <div class="card-body">
+           <h2 class="text-center top-use">給你建議！</h2>
+           <p class="text-center top-use">(アドバイス！)</p>
+           <div class="row">
+             <div class="col-2">
+               <%= image_tag "tera.png", size: "110x140"%>
+             </div>
+             <div class="col-10">
+               <p class="top-use">1.声調を意識して口に出してしっかり発音しよう</p>
+               <p class="top-use">2.単語ではなく例文で覚えよう</p>
+               <p class="top-use">3.例文をいいねしてブックマークとして使おう</p>
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 mt-5 mb-5">
+      <h2 class="top-use d-flex">新着単語</h2>
+      <div class="justify-content-around d-flex flex-wrap mb-3">
+        <% @words.each do |word| %>
+        <div class="card shadow text-center mt-3" style="width: 15rem;">
+           <div class="card-body">
+              <p class="card-text"><%=  word.pinyin %></p>
+            <h3 class="card-title"><%= link_to word.cn_word, word_path(word) %></h3>
+          </div>
+        </div>
+      <% end %>
+      </div>
+      <!--<div class="ml-3"><%= link_to "単語一覧", words_path, class: "btn btn-outline-secondary btn-sm" %></div>-->
+    </div>
+    <div class="col-6 mt-5 mb-5">
+      <h2 class="top-use d-flex">新着例文</h2>
+      <div class="justify-content-around d-flex flex-wrap mb-3">
+        <% @example_sentences.each do |example_sentence| %>
+        <div class="card shadow text-center mt-3" style="width: 30rem;">
+           <div class="card-body">
+              <p class="card-text"></p>
+            <h3 class="card-title"><%= link_to example_sentence.sentences, word_example_sentences_path(example_sentence.word, example_sentence)%></h3>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

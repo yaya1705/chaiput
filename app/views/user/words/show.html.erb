@@ -14,8 +14,8 @@
           <p class="card-text"></p>
           <p><%= @word.jp_word %></p>
           <p></p>
+        </div>
       </div>
-    </div>
 
     <% if (@current_user && @word.user_id == @current_user.id) || admin_signed_in? %>
         <div class="card shadow text-center mt-3 mb-3" style="width: 20rem; height: 6rem;">

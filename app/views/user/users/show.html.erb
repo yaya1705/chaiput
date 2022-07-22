@@ -11,7 +11,9 @@
         </div>
         <div class="d-flex justify-content-center ">
           <%= link_to "いいね一覧", favorites_users_path(@user), class: "btn btn-info"%>
+           <% if @user.name != "guestuser" %>
           <%= link_to "会員情報編集", edit_user_registration_path(@user) , class: "btn btn-warning"%>
+          <% end %>
         </div>
         <!--<%= link_to "いいね一覧", favorites_users_path(@user), class: "btn btn-info"%>-->
         <% if @user.name != "guestuser" %>

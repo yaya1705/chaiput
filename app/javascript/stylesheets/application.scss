@@ -5,21 +5,29 @@ html {
   height: 100%;
 }
 
+* {
+  font-family: 'HanziPen TC',sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: #FDF6EC;
 }
 
 header {
   width: 100%;
+  background-color: #92B4EC;
 }
 
 footer {
   position: sticky;
   top: 100vh;
   width: 100%;
+  background-color: #FFD24C;
 }
+
 
 
 .design01 {
@@ -37,6 +45,8 @@ footer {
  padding: 10px;
  border: solid 1px #778ca3;
 }
+
+
 
 .table-demo {
     border: 1px solid #ddd;
@@ -100,18 +110,6 @@ h1 span:before {
 
 h1 span:after {
   bottom: 15px;
-}
-
-body {
-    background-color: #FFFFFF;
-}
-
-header {
-    background-color: #92B4EC;
-}
-
-footer {
-    background-color: #FFD24C;
 }
 
 .profile-img {
@@ -194,27 +192,35 @@ ul.cp_list {
     left: -2px;
     border-radius: 4px 4px 0px 0px;
     }
-    ul.cp_list li {
-    line-height: 1.5;
-    padding: 0.5em 0 0.5em 1.4em;
-    border-bottom: 1px dashed #4DB6AC;
-    }
-    // ul.cp_list li::before {
-    // position: absolute;
-    // content: "\002713";
-    // color: #00796B;
-    // font-weight: bold;
-    // left : 0.5em;
+    // ul.cp_list li {
+    // line-height: 1.5;
+    // padding: 0.5em 0 0.5em 1.4em;
+    // border-bottom: 1px dashed #4DB6AC;
     // }
+    // // ul.cp_list li::before {
+    // // position: absolute;
+    // // content: "\002713";
+    // // color: #00796B;
+    // // font-weight: bold;
+    // // left : 0.5em;
+    // // }
 
-    ul.cp_list li:last-of-type {
-    border-bottom: none;
-    content: "\002713";
-    	color: #00796B;
-    // 	font-weight: bold;
-    	left : 0.5em;
-    }
+    // ul.cp_list li:last-of-type {
+    // border-bottom: none;
+    // content: "\002713";
+    // 	color: #00796B;
+    // // 	font-weight: bold;
+    // 	left : 0.5em;
+    // }
     ul.cp_list li:last-of-type {
     	border-bottom: none;
+    }
+
+    .top-use {
+      font-family: 'HanziPen TC',sans-serif;
+    }
+
+    .top-use p {
+      font-family: 'HanziPen TC',sans-serif;
     }
 

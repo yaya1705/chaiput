@@ -3,7 +3,7 @@
      <div class="col-5 mr-3">
       <h2>単語投稿</h2>
        <%= form_with model: @word, url: words_path do |f| %>
-      <ul class="cp_list" title="">
+      <ul class="cp_list" title="単語を投稿してアウトプットしよう！">
     	<li>
     	  <div class="form-group row mt-3">
         <label class="col-sm-3">拼音</label>
@@ -22,11 +22,11 @@
      </li>
       <li>
         <div class="form-group row">
-        <label class="col-sm-3">日本語(japanese)</label>
-        <div class="col-sm-8">
-          <%= f.text_field :jp_word, placeholder: "好き", class: "form-control"%>
+          <label class="col-sm-3">日本語(japanese)</label>
+          <div class="col-sm-8">
+            <%= f.text_field :jp_word, placeholder: "好き", class: "form-control"%>
+          </div>
         </div>
-      </div>
       </li>
       <li>
         <div class="form-group row">
@@ -34,7 +34,7 @@
          <div class="co-l-sm-8 ml-3">
            <%= f.submit "単語追加", class: "btn btn-success" %>
          </div>
-    </div>
+   　　 </div>
       </li>
 　　</ul>
     </div>
@@ -42,7 +42,7 @@
     <div class="col-6 mt-2 ml-3">
       <h2>単語帳</h2>
 
-           <table class="design01 mt-3">
+           <table class="design01 mt-3 mb-3">
             <tr>
               <th></th>
               <th>中国語</th>
