@@ -216,11 +216,20 @@ ul.cp_list {
     	border-bottom: none;
     }
 
-    .top-use {
-      font-family: 'HanziPen TC',sans-serif;
-    }
+@media screen and (max-width: 425px) {
+  #sentence {
+    width: 20rem;
+  }
+   #sentence2 {
+    width: 20rem;
+  }
+}
 
-    .top-use p {
-      font-family: 'HanziPen TC',sans-serif;
-    }
-
+@media screen and (min-width: 1200px) {
+  #sentence {
+    width: 45rem;
+  }
+   #sentence2 {
+    width: 40rem;
+  }
+}

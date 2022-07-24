@@ -1,10 +1,10 @@
 <div class="container">
    <h2 class="text-center mt-4">検索結果一覧</h2>
   <div class="row justify-content-around">
-    <div class="col-4">
+    <div class="col-xl-4 col-12">
 
       <% @words.each do |word| %>
-       <div class="card shadow text-center mb-3" style="width: 20rem; height: 6.5rem;">
+       <div class="card shadow text-center mb-3" id="sentence" style="width: 20rem; height: 6.5rem;">
        <div class="card-body">
            <p class="card-text mb-2"><%= word.pinyin %></p>
           <h3 class="card-title"><%= link_to word.cn_word, word_path(word) %></h3>
@@ -13,10 +13,10 @@
       <% end %>
        <%= paginate @words %>
     </div>
-    <div class="col-7 mb-3">
+    <div class="col-xl-7 col-12 mb-3">
       <h3 class="text-center"></h3>
        <% @example_sentences.each do |example| %>
-       <div class="card shadow text-center mb-3" style="width: 40rem;">
+       <div class="card shadow text-center mb-3 sentence" id="sentence2">
        <div class="card-body">
            <p class="card-text mb-2"></p>
           <h3 class="card-title"><%= link_to example.sentences, word_example_sentences_path(example.word) %></h3>
