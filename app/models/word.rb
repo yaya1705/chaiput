@@ -4,8 +4,9 @@ class Word < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
 
-   validates :jp_word, presence: true
-   validates :cn_word, presence: true
+   validates :pinyin, presence: true, length: { minimum: 2, maximum: 20 }
+   validates :jp_word, presence: true, length: { minimum: 2, maximum: 20 }
+   validates :cn_word, presence: true, length: { minimum: 2, maximum: 10 }, uniqueness: true
 
    # 検索方法分岐
   def self.looks(word)

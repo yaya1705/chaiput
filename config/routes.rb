@@ -19,10 +19,15 @@ Rails.application.routes.draw do
     resources :words, only:[:index,:show,:new,:create,:edit,:update,:destroy] do
     resources :example_sentences, only:[:create,:destroy,:index]do
     resource :favorites, only:[:create,:destroy]
+    resource :relationships, only: [:create, :destroy]
   end
   end
 
     resource :users, only:[:show,:update] do
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+      resources :profiles, only:[:show,:edit,:update]
       patch "withdrawal" => "users#withdrawal"
      member do
     get "favorites"

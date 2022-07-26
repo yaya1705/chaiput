@@ -1,3 +1,3 @@
-$("#new-sentences").html("<%= j(render 'user/words/new_sentence', word: @word, example_sentence: @example_sentence, example_sentences_new: @example_sentences_new) %>");
+$("#new-sentences").html("<%= j(render 'user/words/new_sentence', word: @word, example_sentence: @example_sentence, example_sentences_new: @example_sentences_new, example_sentences:  @example_sentences) %>");
 $("#example_sentence_sentences").val('');
 $("#example_sentence_sentences_jp").val('');

@@ -1,69 +1,48 @@
 <div class="container">
   <div class="row mt-2">
-    <div class="col-xl-4 col-12 mt-2">
+    <div class="col-xl-3 col-12 mt-2">
       <div class="card card-container">
-        <h2 class="session text-center">Profile</h2>
         <div class="profile-img text-center">
-          <%= image_tag "yaya.png", size: "150x150"%>
+           <%= image_tag current_user.profile_image,size:"150x150" %>
         </div>
-        <div class="profile mx-auto">
-           <h4><%= @user.name %></h4>
-        </div>
-        <div class="d-flex justify-content-center ">
-          <%= link_to "いいね一覧", favorites_users_path(@user), class: "btn btn-info"%>
-           <% if @user.name != "guestuser" %>
-          <%= link_to "会員情報編集", edit_user_registration_path(@user) , class: "btn btn-warning"%>
-          <% end %>
-        </div>
-        <!--<%= link_to "いいね一覧", favorites_users_path(@user), class: "btn btn-info"%>-->
-        <% if @user.name != "guestuser" %>
-        <div class="d-flex justify-content-center">
-          <%= form_with model: @user, url: withdrawal_users_path, method: :patch, local: true do |f| %>
-          <div class="btn btn btn-danger" data-toggle="modal" data-target="#delete-user-confirm-modal">退会する</div>
-          <div class="modal fade" id="delete-user-confirm-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel"><label>本当に退会しますか？</label></h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="modal-body">
-              <p class="text-center">一度退会するとデータはすべて削除され復旧はできません。</p>
-            </div>
-            <div class="modal-footer justify-content-center">
-              <button type="button" class="btn btn-light btn-sm " data-dismiss="modal">キャンセル</button>
-              <button type="submit" class="btn btn btn-danger btn-sm text-white">退会する</button>
-            </div>
+         <h2 class="session text-center"><%= @user.name %></h2>
+          <div class="text-center">
+            <%= link_to "いいね一覧", favorites_users_path(@user), class: "btn btn-info"%>
+             <% if @user.name != "guestuser" %>
+              <%= link_to "プロフィール編集", edit_users_profile_path(@user), class: "btn btn-warning" %>
+              <!--<%= link_to "会員情報編集", edit_user_registration_path(@user) , class: "btn btn-success"%>-->
+            <% end %>
+            <!--<%= link_to "フォローリスト",followings_users_path(@user), class: "btn btn-light" %>-->
           </div>
-          <% end %>
-        </div>
-        <% end %>
+        <% if @user.name != "guestuser" %>
+          <div class="d-flex justify-content-center">
+            <%= form_with model: @user, url: withdrawal_users_path, method: :patch, local: true do |f| %>
+              <div class="btn btn btn-danger" data-toggle="modal" data-target="#delete-user-confirm-modal">退会する</div>
+               <div class="modal fade" id="delete-user-confirm-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                 <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel"><label>本当に退会しますか？</label></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                       <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                 <div class="modal-body">
+                   <p class="text-center">一度退会するとデータはすべて削除され復旧はできません。</p>
+                 </div>
+                 <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-light btn-sm " data-dismiss="modal">キャンセル</button>
+                <button type="submit" class="btn btn btn-danger btn-sm text-white">退会する</button>
+              </div>
+              </div>
+             <% end %>
+          </div>
+       <% end %>
       </div>
     </div>
-
-
-    <div class="col-xl-5 col-12 mt-3 mb-3">
-      <h2>単語帳</h2>
-      <p><%= @user.name %>さんが投稿した単語一覧</p>
-      <table class=" table table-bordered design01">
-        <tr>
-          <th></th>
-          <th>単語</th>
-          <th>拼音</th>
-        </tr>
-        <% @words.each do |word| %>
-        <tr>
-          <td><%= @page += 1 %></td>
-          <td><%=  link_to word.cn_word, word_path(word) %></td>
-          <td><%= word.pinyin %></td>
-        </tr>
-        <% end %>
-      </table>
-    </div>
+     <%= render "index",user: @user,words: @words, page: @page, example_sentences: @example_sentences, page1: @page1 %>
   </div>
 </div>
 

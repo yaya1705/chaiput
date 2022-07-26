@@ -1,43 +1,43 @@
 <div class="conatainer">
   <div class="row center-block">
-     <div class="col-4 mx-auto mt-3">
+    <div class="col-xl-4 col-12 mx-auto mt-3">
       <h2 class="text-center">単語修正</h2>
        <%= form_with model: @word, url: word_path, method: :patch do |f| %>
-      <ul class="cp_list" title="">
-    	<li>
-    	  <div class="form-group row mt-1">
-        <label class="col-sm-3">拼音</label>
-        <div class="col-sm-8">
-          <%= f.text_field :pinyin, class: "form-control"%>
-        </div>
-      </div>
-     </li>
-      <li>
-        <div class="form-group row mt-3">
-        <label class="col-sm-3">中国語(chinese)</label>
-        <div class="col-sm-8">
-          <%= f.text_field :cn_word, class: "form-control"%>
-        </div>
-      </div>
-     </li>
-      <li>
-        <div class="form-group row">
-        <label class="col-sm-3">日本語(japanese)</label>
-        <div class="col-sm-8">
-          <%= f.text_field :jp_word, class: "form-control"%>
-        </div>
-      </div>
-      </li>
-      <li>
-        <div class="form-group row">
-         <label class="col-sm-3"></label>
-         <div class="co-l-sm-8 ml-3">
-           <%= f.submit "単語追加", class: "btn btn-success" %>
+        <ul class="cp_list" title="">
+         <li>
+        	<div class="form-group row mt-1">
+            <label class="col-sm-3">拼音</label>
+            <div class="col-sm-8">
+              <%= f.text_field :pinyin, class: "form-control"%>
+            </div>
+          </div>
+         </li>
+        <li>
+          <div class="form-group row mt-3">
+            <label class="col-sm-3">中国語(chinese)</label>
+            <div class="col-sm-8">
+             <%= f.text_field :cn_word, class: "form-control"%>
+            </div>
+          </div>
+       </li>
+        <li>
+          <div class="form-group row">
+            <label class="col-sm-3">日本語(japanese)</label>
+            <div class="col-sm-8">
+              <%= f.text_field :jp_word, class: "form-control"%>
+            </div>
          </div>
-    </div>
-      </li>
+        </li>
+        <li>
+          <div class="form-group row">
+            <label class="col-sm-3"></label>
+           <div class="co-l-sm-8 ml-3">
+             <%= f.submit "単語追加", class: "btn btn-success" %>
+           </div>
+         </div>
+        </li>
 　　</ul>
-　　 <% end %>
+　　   <% end %>
     </div>
   </div>
 </div>

@@ -5,7 +5,7 @@ class ExampleSentence < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :book_marks, dependent: :destroy
 
-   validates :sentences, presence: true
+   validates :sentences, presence: true, length: { minimum: 2, maximum: 50 }
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)

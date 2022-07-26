@@ -1,11 +1,14 @@
 class User::UsersController < ApplicationController
+  
  before_action :set_user
 
 
   def show
     #@word = Word.find(params[:id])
-    @words = @user.words.page(params[:page]).per(10)
+    @words = @user.words.page(params[:page]).per(10).order(created_at: :desc)
     @page =  params[:page] ? (params[:page].to_i - 1) * 10 : 0
+    @example_sentences = @user.example_sentences.page(params[:page1]).per(10).order(created_at: :desc)
+    @page1 =  params[:page1] ? (params[:page1].to_i - 1) * 10 : 0
   end
 
   def favorites
@@ -33,6 +36,6 @@ class User::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name,:email,:is_deleted)
+    params.require(:user).permit(:name,:email,:is_deleted,:profile_image)
   end
 end

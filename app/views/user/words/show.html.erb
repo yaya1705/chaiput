@@ -1,60 +1,57 @@
 <div class="container">
   <div class="row mt-3 mb-5">
     <div class="col-xl-4 col-12">
-       <h2 class="text-center mt-2">【詳細】<i class="fas fa-user-edit"></i></h2>
-      <div class="card shadow text-center " style="width: 20rem;">
+       <h2 class="text-center mt-2"></h2>
+       <h4 class="text-center">
+           <%= link_to users_profile_path(@word.user.id) do %>
+           <%= @word.user.name %>
+           <%= image_tag @word.user.profile_image, size:"50x50"%>
+           <% end %>
+        </h4>
+       <div class="card shadow text-center " style="width: 20rem;">
          <div class="card-body">
            <p class="card-text mb-2"><%= @word.pinyin %></p>
-          <h1 class="card-title"><span><%= @word.cn_word %></span></h1>
+           <h1 class="card-title"><span><%= @word.cn_word %></span></h1>
          </div>
        </div>
        <div class="card shadow text-center mt-3" style="width: 20rem;">
          <div class="card-body">
-          <h5 class="card-title">【意味】</h5>
-          <p class="card-text"></p>
-          <p><%= @word.jp_word %></p>
-          <p></p>
-        </div>
-      </div>
+            <h5 class="card-title">【意味】</h5>
+            <p class="card-text"></p>
+            <p><%= @word.jp_word %></p>
+            <p></p>
+         </div>
+       </div>
 
     <% if (@current_user && @word.user_id == @current_user.id) || admin_signed_in? %>
-        <div class="card shadow text-center mt-3 mb-3" style="width: 20rem; height: 6rem;">
-         <div class="card-body">
+      <div class="card shadow text-center mt-3 mb-3" style="width: 20rem; height: 6rem;">
+        <div class="card-body">
           <h5 class="card-title"></h5>
           <p class="card-text">
               <%= link_to "編集", edit_word_path, class: 'btn btn-primary mr-5' %>
               <%= link_to "削除", word_path, method: :delete, class: "btn btn-danger "%>
           </p>
-      </div>
-    </div>
-     <% end %>
-
-     <div class="mt-5">
-         <%= link_to "一覧ページへ戻る", words_path %>
+       </div>
      </div>
-
+    <% end %>
+     <div class="mt-5">
+       <%= link_to "前のページへ戻る", words_path, class:"btn btn-outline-secondary btn-sm" %>
+     </div>
     </div>
     <div class="col-xl-6  col-12 justify-content-around">
       <h2 class="text-center mt-3">【例文追加】</h2>
       <div class="card shadow text-center" id="sentence">
-         <div class="card-body">
+        <div class="card-body">
           <!--<h5 class="card-title">【例文】</h5>-->
-           <div class="new-comment mt-1">
-             <%= render 'user/words/form', word: @word,example_sentence: @example_sentence %>
-
-           </div>
-          <p class="card-text"></p>
-          <p></p>
-          <p></p>
-       </div>
-    </div>
-
-    <div id="new-sentences">
-      <%= render 'user/words/new_sentence',word: @word, example_sentence: @example_sentence, example_sentences_new: @example_sentences_new %>
-     </div>
-      <% if @example_sentences.exists?%>
-     <%= link_to "例文一覧ページ", word_example_sentences_path(word_id: @word.id) %>
-     <% end %>
+        <div class="new-comment mt-1">
+          <%= render 'user/words/form', word: @word,example_sentence: @example_sentence %>
+        </div>
+        <p class="card-text"></p>
+        </div>
+      </div>
+      <div id="new-sentences">
+        <%= render 'user/words/new_sentence',word: @word, example_sentence: @example_sentence, example_sentences_new: @example_sentences_new, example_sentences:  @example_sentences %>
+      </div>
     </div>
   </div>
 </div>

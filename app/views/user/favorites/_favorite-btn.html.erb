@@ -1,12 +1,11 @@
-
- <% if user_signed_in? && example_sentence.favorited_by?(current_user) %>
-   <%= link_to word_example_sentence_favorites_path(example_sentence.word,example_sentence), method: :delete, remote: true do %>
+<% if user_signed_in? && example_sentence.favorited_by?(current_user) %>
+  <%= link_to word_example_sentence_favorites_path(example_sentence.word,example_sentence), method: :delete, remote: true do %>
      <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
      <%= example_sentence.favorites.count %>
-   <% end %>
-   <% else %>
-   <%= link_to word_example_sentence_favorites_path(example_sentence.word,example_sentence), method: :post, remote: true do %>
-     <i class="fas fa-heart" aria-hidden="true"></i>
-      <%= example_sentence.favorites.count %>
-   <% end %>
   <% end %>
+<% else %>
+  <%= link_to word_example_sentence_favorites_path(example_sentence.word,example_sentence), method: :post, remote: true do %>
+    <i class="fas fa-heart" aria-hidden="true"></i>
+     <%= example_sentence.favorites.count %>
+  <% end %>
+<% end %>

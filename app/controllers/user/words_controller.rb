@@ -4,7 +4,7 @@ before_action :authenticate_user!, except:[:index,:show,:destroy]
 
   def index
     @word = Word.new
-    @words = Word.page(params[:page]).per(10)
+    @words = Word.page(params[:page]).per(10).order(created_at: :desc)
     @page =  params[:page] ? (params[:page].to_i - 1) * 10 : 0
   end
 

@@ -1,0 +1,36 @@
+<div class="col-xl-4 col-12 mt-3 mb-3">
+  <h2>単語帳</h2>
+  <p><%= user.name %>さんが投稿した単語一覧</p>
+    <table class=" table table-bordered design01">
+      <tr>
+        <th></th>
+        <th>単語</th>
+        <th>拼音</th>
+      </tr>
+      <% @words.each do |word| %>
+        <tr>
+          <td><%= @page += 1 %></td>
+          <td><%=  link_to word.cn_word, word_path(word) %></td>
+          <td><%= word.pinyin %></td>
+        </tr>
+      <% end %>
+    </table>
+      <%= paginate @words %>
+</div>
+<div class="col-xl-4 col-12 mt-3 mb-3">
+  <h2>例文一覧</h2>
+  <p><%= user.name %>さんが投稿した例文</p>
+    <table class=" table table-bordered design01">
+      <tr>
+        <th></th>
+        <th>例文</th>
+      </tr>
+      <% example_sentences.each do |example| %>
+        <tr>
+          <td><%= @page1 += 1 %></td>
+          <td><%= link_to example.sentences, word_example_sentences_path(example.word)%></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= paginate @example_sentences %>
+</div>

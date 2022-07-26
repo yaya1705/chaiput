@@ -1,67 +1,61 @@
 <div class="container">
   <div class="row mt-5 mb-5">
-     <div class="col-xl-5 col-12 mr-3">
+    <div class="col-xl-5 col-12 mr-3">
       <h2>単語投稿</h2>
        <%= form_with model: @word, url: words_path do |f| %>
-      <ul class="cp_list" title="単語を投稿してアウトプットしよう！">
-    	<li>
-    	  <div class="form-group row mt-3">
-        <label class="col-sm-3">拼音</label>
-        <div class="col-sm-8">
-          <%= f.text_field :pinyin, placeholder: "xǐ huān",class: "form-control"%>
-        </div>
-      </div>
-     </li>
-      <li>
-        <div class="form-group row mt-3">
-        <label class="col-sm-3">中国語(chinese)</label>
-        <div class="col-sm-8">
-          <%= f.text_field :cn_word, placeholder: "喜歡",class: "form-control"%>
-        </div>
-      </div>
-     </li>
-      <li>
-        <div class="form-group row">
-          <label class="col-sm-3">日本語(japanese)</label>
-          <div class="col-sm-8">
-            <%= f.text_field :jp_word, placeholder: "好き", class: "form-control"%>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="form-group row">
-         <label class="col-sm-3"></label>
-         <div class="co-l-sm-8 ml-3">
-           <%= f.submit "単語追加", class: "btn btn-success" %>
-         </div>
-   　　 </div>
-      </li>
-　　</ul>
+         <ul class="cp_list" title="単語を投稿してアウトプットしよう！">
+            <li>
+          	 <div class="form-group row mt-3">
+               <label class="col-sm-3">拼音</label>
+               <div class="col-sm-8">
+                 <%= f.text_field :pinyin, placeholder: "xǐ huān",class: "form-control"%>
+               </div>
+             </div>
+            </li>
+            <li>
+              <div class="form-group row mt-3">
+                <label class="col-sm-3">中国語(chinese)</label>
+                <div class="col-sm-8">
+                  <%= f.text_field :cn_word, placeholder: "喜歡",class: "form-control"%>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="form-group row">
+                <label class="col-sm-3">日本語(japanese)</label>
+                <div class="col-sm-8">
+                  <%= f.text_field :jp_word, placeholder: "好き", class: "form-control"%>
+                </div>
+              </div>
+            </li>
+            <li>
+                <div class="form-group row">
+                 <label class="col-sm-3"></label>
+                 <div class="co-l-sm-8 ml-3">
+                   <%= f.submit "単語追加", class: "btn btn-success" %>
+                 </div>
+         　　    </div>
+              </li>
+　　     </ul>
+　　   <% end %>
     </div>
-      <% end %>
     <div class="col-xl-6 col-12 mt-2 ml-3">
       <h2>単語帳</h2>
-
-           <table class="design01 mt-3 mb-3">
+       <table class="design01 mt-3 mb-3">
+          <tr>
+            <th></th>
+            <th>中国語</th>
+            <th>拼音</th>
+          </tr>
+         <% @words.each do |word| %>
             <tr>
-              <th></th>
-              <th>中国語</th>
-              <th>拼音</th>
-            </tr>
-            <% @words.each do |word| %>
-            <tr>
-              <td>
-              <%= @page += 1 %>
-              </td>
-              <td>
-                <%= link_to word.cn_word, word_path(word) %>
-              </td>
+              <td><%= @page += 1 %></td>
+              <td><%= link_to word.cn_word, word_path(word) %></td>
               <td><%= word.pinyin %></td>
             </tr>
-        <% end %>
+         <% end %>
       </table>
        <%= paginate @words %>
     </div>
-
   </div>
 </div>

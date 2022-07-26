@@ -8,6 +8,7 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag('yaya.png') %>
   </head>
 
   <body>
@@ -25,11 +26,9 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
 
-
             <li class="nav-item mr-5 d-flex">
                <%= render 'user/searches/form' %>
             </li>
-
             <li class="nav-item">
               <%= link_to 'マイページ', users_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>
             </li>
@@ -37,12 +36,10 @@
               <%= link_to '単語投稿', words_path , class: 'btn btn-outline-secondary btn-lg mr-3' %>
             </li>
             </li>
-            <!--<li class="nav-item">-->
-            <!--  <%= link_to 'ブックマーク', book_marks_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>-->
-            <!--</li>-->
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary btn-lg mr-3' %>
             </li>
+
             <% elsif admin_signed_in? %>
              <li class="nav-item">
               <%= link_to "管理者", admins_users_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>
