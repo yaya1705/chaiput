@@ -1,7 +1,7 @@
 class User::ExampleSentencesController < ApplicationController
 
   # before_action :authenticate_any?, except:[:index]
-  before_action :authenticate_user!, except:[:index,:destroy]
+   before_action :authenticate_user!, except:[:index,:destroy]
   def create
     @word = Word.find(params[:word_id])
     # @example_sentence_params = current_user.example_sentence.new(example_sentence_params)

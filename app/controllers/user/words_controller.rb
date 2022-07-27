@@ -1,6 +1,6 @@
 class User::WordsController < ApplicationController
 
-before_action :authenticate_user!, except:[:index,:show,:destroy]
+ before_action :authenticate_user!, except:[:index,:show,:destroy]
 
   def index
     @word = Word.new

@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(version: 2022_07_24_161718) do
   create_table "words", force: :cascade do |t|
     t.string "cn_word", null: false
     t.string "jp_word", null: false
-    t.string "jp_word_1"
     t.string "pinyin"
     t.string "supplement"
     t.integer "user_id"

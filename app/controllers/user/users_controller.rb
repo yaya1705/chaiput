@@ -1,7 +1,6 @@
 class User::UsersController < ApplicationController
-  
- before_action :set_user
 
+ before_action :set_user
 
   def show
     #@word = Word.find(params[:id])
