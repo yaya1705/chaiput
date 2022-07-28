@@ -8,8 +8,8 @@
          <h2 class="session text-center"><%= @user.name %></h2>
           <div class="text-center">
             <%= link_to "いいね一覧", favorites_users_path(@user), class: "btn btn-info"%>
+            <%= link_to "プロフィール編集", edit_users_profile_path(@user), class: "btn btn-warning" %>
              <% if @user.name != "guestuser" %>
-              <%= link_to "プロフィール編集", edit_users_profile_path(@user), class: "btn btn-warning" %>
               <!--<%= link_to "会員情報編集", edit_user_registration_path(@user) , class: "btn btn-success"%>-->
             <% end %>
             <!--<%= link_to "フォローリスト",followings_users_path(@user), class: "btn btn-light" %>-->

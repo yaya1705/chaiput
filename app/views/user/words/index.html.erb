@@ -47,7 +47,7 @@
             <th>中国語</th>
             <th>拼音</th>
           </tr>
-         <% @words.each do |word| %>
+         <% @words&.each do |word| %>
             <tr>
               <td><%= @page += 1 %></td>
               <td><%= link_to word.cn_word, word_path(word) %></td>

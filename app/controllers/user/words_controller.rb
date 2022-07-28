@@ -12,11 +12,15 @@ class User::WordsController < ApplicationController
     @word = Word.new(word_params)
     @word.user_id = current_user.id
     if @word.save
-      redirect_to words_path, notice: "You have created book successfully."
+      redirect_to words_path
     else
-      #renderを使う際、ビューの表示に必要なインスタンス変数を用意
-      @words.all
+      
+      @word = Word.new
+      @page =  params[:page] ? (params[:page].to_i - 1) * 10 : 0
+      @words = Word.page(params[:page]).per(10).order(created_at: :desc)
       render :index
+      #renderを使う際、ビューの表示に必要なインスタンス変数を用意
+
     end
   end
 
