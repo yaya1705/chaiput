@@ -1,4 +1,5 @@
 <div class="container">
+  <h2 class="text-center mt-4">【<%= @word.cn_word %>】例文一覧</h2>
   <div class="row" id="sentence-index">
    <%= render "user/example_sentences/index",word: @word, example_sentences: @example_sentences, example_sentences_new: @example_sentences_new %>
   </div>
