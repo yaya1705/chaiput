@@ -10,7 +10,7 @@
             <%= link_to "いいね一覧", favorites_users_path(@user), class: "btn btn-info"%>
             <%= link_to "プロフィール編集", edit_users_profile_path(@user), class: "btn btn-warning" %>
              <% if @user.name != "guestuser" %>
-              <%= link_to "会員情報編集", edit_user_registration_path(@user) , class: "btn btn-success"%>
+              <!--<%= link_to "会員情報編集", edit_user_registration_path(@user) , class: "btn btn-success"%>-->
             <% end %>
             <!--<%= link_to "フォローリスト",followings_users_path(@user), class: "btn btn-outline-primary" %>-->
           </div>
@@ -44,4 +44,4 @@
     </div>
      <%= render "index",user: @user,words: @words, page: @page, example_sentences: @example_sentences, page1: @page1 %>
   </div>
-</div>git
+</div>
