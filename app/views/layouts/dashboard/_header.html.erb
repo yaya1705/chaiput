@@ -11,7 +11,9 @@
             <ul class="navbar-nav ml-auto">
 
             <% if admin_signed_in? %>
-
+            <li class="nav-item">
+              <%= link_to "品詞追加", admins_genres_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>
+            </li>
             <li class="nav-item">
               <%= link_to "会員一覧", admins_users_path, class: 'btn btn-outline-secondary btn-lg mr-3' %>
             </li>

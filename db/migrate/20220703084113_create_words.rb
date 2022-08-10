@@ -7,6 +7,7 @@ class CreateWords < ActiveRecord::Migration[6.1]
       t.string :pinyin, null: true
       t.string :supplement, null: true
       t.integer :user_id
+      t.integer :genre_id
 
       t.timestamps
     end

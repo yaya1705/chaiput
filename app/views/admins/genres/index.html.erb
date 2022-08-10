@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-xl-5">
+      <%= form_with model: @genre, url: admins_genres_path do |f| %>
+         <div class="form-group row">
+           <label class="col-3">
+             <%= f.label :name, "品詞" %>
+           </label>
+           <div class="col-6">
+             <%= f.text_field :name, class: "form-control"%>
+           </div>
+           <div class="col-2">
+             <%= f.submit "追加", class: " btn btn-success"%>
+           </div>
+         </div>
+      <% end %>
+      <div class="table">
+          <% @genres.each do |genre| %>
+            <tr>
+                <td><%= genre.name %></td>
+                <td><%= link_to "削除", admins_genre_path(genre), method: :delete, class: "btn btn-danger" %></td>
+            </tr>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

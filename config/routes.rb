@@ -42,6 +42,7 @@ Rails.application.routes.draw do
    namespace :admins do
      resources :words, only:[:index,:destroy]
      resources :users, only: [:index, :update,:edit]
+     resources :genres, only:[:index, :create, :edit, :update, :destroy]
    end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
