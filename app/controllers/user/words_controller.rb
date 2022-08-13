@@ -14,7 +14,7 @@ class User::WordsController < ApplicationController
     if @word.save
       redirect_to words_path
     else
-      
+
       @word = Word.new
       @page =  params[:page] ? (params[:page].to_i - 1) * 10 : 0
       @words = Word.page(params[:page]).per(10).order(created_at: :desc)
@@ -57,7 +57,7 @@ class User::WordsController < ApplicationController
   private
 
   def word_params
-    params.require(:word).permit(:jp_word, :cn_word, :supplement, :jp_word_1, :pinyin)
+    params.require(:word).permit(:jp_word, :cn_word, :supplement, :jp_word_1, :pinyin, :genre_id, :name)
   end
 
 end
