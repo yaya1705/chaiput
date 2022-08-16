@@ -7,7 +7,6 @@ class User < ApplicationRecord
          has_many :words, dependent: :destroy
          has_many :example_sentences, dependent: :destroy
          has_many :favorites, dependent: :destroy
-         has_many :book_marks, dependent: :destroy
          has_one :profile
 
         # has_many :sentence_book_mark, through: :book_mark, source: example_sentence
@@ -52,25 +51,5 @@ class User < ApplicationRecord
             super && (is_deleted == false)
          end
 
-        # フォローをした、されたの関係
-        has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-        has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-
-        # 一覧画面で使う source=参照するカラム
-        has_many :followings, through: :relationships, source: :followed
-        has_many :followers, through: :reverse_of_relationships, source: :follower
-
-        # フォローしたときの処理
-        def follow(user_id)
-          relationships.create(followed_id: user_id)
-        end
-        # フォローを外すときの処理
-        def unfollow(user_id)
-          relationships.find_by(followed_id: user_id).destroy
-        end
-        # フォローしているか判定
-        def following?(user)
-          followings.include?(user)
-        end
 
 end

@@ -12,6 +12,14 @@
             </div>
           </div>
          </li>
+         <li>
+          	 <div class="form-group row mt-3">
+               <label class="col-sm-3">品詞</label>
+               <div class="col-sm-8">
+                <%= f.collection_select :genre_id, Genre.all, :id, :name, class: "book_body"%>
+               </div>
+             </div>
+            </li>
         <li>
           <div class="form-group row mt-3">
             <label class="col-sm-3">中国語(chinese)</label>
@@ -32,7 +40,7 @@
           <div class="form-group row">
             <label class="col-sm-3"></label>
            <div class="co-l-sm-8 ml-3">
-             <%= f.submit "単語追加", class: "btn btn-success" %>
+             <%= f.submit "単語編集", class: "btn btn-success" %>
            </div>
          </div>
         </li>

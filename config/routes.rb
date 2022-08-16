@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :example_sentences, only:[:create,:destroy,:index]do
     resource :favorites, only:[:create,:destroy]
     resource :relationships, only: [:create, :destroy]
+
   end
   end
 
@@ -42,7 +43,7 @@ Rails.application.routes.draw do
    namespace :admins do
      resources :words, only:[:index,:destroy]
      resources :users, only: [:index, :update,:edit]
-     resources :genres, only:[:index, :create, :destroy]
+     resources :genres, only:[:index, :create, :edit, :destroy,:update]
    end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
