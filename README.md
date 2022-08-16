@@ -21,7 +21,7 @@
 - 例文にいいねをして自分のお気に入り一覧を表示ができる
 
 ## 設計書
-![Untitled Diagram-Page-2 (1)](https://user-images.githubusercontent.com/66726846/181265857-cbf76ea5-e375-4134-b960-0b700200fd0f.jpg)
+![Untitled Diagram-Page-2 (2)](https://user-images.githubusercontent.com/66726846/184920448-fe5ad8a1-c8e5-4c82-b4de-c46c50f3e103.jpg)
 
 
 ## 開発環境
