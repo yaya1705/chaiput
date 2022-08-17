@@ -1,6 +1,5 @@
 # chaiput
-
-<img width="275" alt="スクリーンショット 2022-07-30 19 25 33" src="https://user-images.githubusercontent.com/66726846/185175831-a23b4945-ba85-46ed-8ba7-79d955b25da4.png">
+![スクリーンショット 2022-08-18 1 10 41](https://user-images.githubusercontent.com/66726846/185189689-a685e39e-fe2a-41df-b4cc-115f084a1696.png)
 
 ## サイト概要
 ### サイトテーマ
