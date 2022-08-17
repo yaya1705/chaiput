@@ -1,5 +1,7 @@
 # chaiput
 
+<img width="275" alt="スクリーンショット 2022-07-30 19 25 33" src="https://user-images.githubusercontent.com/66726846/185175831-a23b4945-ba85-46ed-8ba7-79d955b25da4.png">
+
 ## サイト概要
 ### サイトテーマ
 今まで中国語で覚えた単語を単語帳やノートにまとめていた。スマホやパソコンで気軽に覚えた単語がアウトプットできたら街中で覚えた単語をすぐ投稿し自分だけの辞書のように活用できる。
@@ -18,8 +20,6 @@
 
 ## 設計書
 ![Untitled Diagram-Page-2 (2)](https://user-images.githubusercontent.com/66726846/184920448-fe5ad8a1-c8e5-4c82-b4de-c46c50f3e103.jpg)
-
-<img width="275" alt="スクリーンショット 2022-07-30 19 25 33" src="https://user-images.githubusercontent.com/66726846/185175831-a23b4945-ba85-46ed-8ba7-79d955b25da4.png">
 
 ## 開発環境
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
