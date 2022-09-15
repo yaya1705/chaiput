@@ -12,7 +12,7 @@ class User::WordsController < ApplicationController
     @word = Word.new(word_params)
     @word.user_id = current_user.id
     if @word.save
-      redirect_to words_path
+      redirect_to words_path, notice: "単語を投稿しました。"
     else
       # @word = Word.new
       @page =  params[:page] ? (params[:page].to_i - 1) * 10 : 0
@@ -29,7 +29,7 @@ class User::WordsController < ApplicationController
   def update
     @word = Word.find(params[:id])
     @word.update(word_params)
-    redirect_to word_path(@word)
+    redirect_to word_path(@word), notice: "単語を編集しました。"
   end
 
   def destroy
@@ -38,7 +38,7 @@ class User::WordsController < ApplicationController
     if (user_signed_in? && @word.user_id == current_user.id) || admin_signed_in?
        @word.destroy
     end
-    redirect_to words_path
+    redirect_to words_path, notice: "単語を削除しました。"
   end
 
 

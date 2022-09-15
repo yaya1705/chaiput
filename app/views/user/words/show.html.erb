@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row mt-3 mb-5">
+    <p class="notice"><%= notice %></p>
     <div class="col-xl-4 col-12">
        <h2 class="text-center mt-2"></h2>
        <h4 class="text-center">
@@ -28,7 +29,7 @@
           <h5 class="card-title"></h5>
           <p class="card-text">
               <%= link_to "編集", edit_word_path, class: 'btn btn-primary mr-5' %>
-              <%= link_to "削除", word_path, method: :delete, class: "btn btn-danger "%>
+              <%= link_to "削除", word_path, method: :delete, data: {confirm: '本当に消しますか？'}, class: "btn btn-danger "%>
           </p>
        </div>
      </div>
