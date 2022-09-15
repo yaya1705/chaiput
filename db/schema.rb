@@ -102,7 +102,6 @@ ActiveRecord::Schema.define(version: 2022_08_10_091317) do
     t.string "cn_word", null: false
     t.string "jp_word", null: false
     t.string "pinyin"
-    t.string "supplement"
     t.integer "user_id"
     t.integer "genre_id"
     t.datetime "created_at", precision: 6, null: false

@@ -8,10 +8,13 @@ class User::ExampleSentencesController < ApplicationController
     @example_sentence = ExampleSentence.new(example_sentence_params)
     @example_sentence.user_id = current_user.id
     @example_sentence.word_id = @word.id
-    @example_sentence.save
-    @example_sentences_new = @word.example_sentences.last(2)
-    @example_sentences = @word.example_sentences
-    # redirect_to word_path(@word)
+    if @example_sentence.save
+      @example_sentences_new = @word.example_sentences.last(2)
+      @example_sentences = @word.example_sentences
+        # redirect_to word_path(@word)
+    else
+      render 'error'
+    end  
   end
 
   def destroy

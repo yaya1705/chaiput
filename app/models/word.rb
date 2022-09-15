@@ -8,6 +8,7 @@ class Word < ApplicationRecord
    validates :pinyin, presence: true, length: { minimum: 2, maximum: 20 }
    validates :jp_word, presence: true, length: { minimum: 2, maximum: 20 }
    validates :cn_word, presence: true, length: { minimum: 2, maximum: 10 }, uniqueness: true
+   validates :genre, presence: true
 
    # 検索方法分岐
   def self.looks(word)

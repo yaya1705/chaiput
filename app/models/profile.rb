@@ -4,6 +4,8 @@ class Profile < ApplicationRecord
   # ユーザーのプロフィール画像
   has_one_attached :profile_image
 
+  validates :introduction, length: { maximum: 75 }
+
 
   def get_profile_image(width, height)
       unless profile_image.attached?

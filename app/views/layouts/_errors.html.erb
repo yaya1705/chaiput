@@ -1,0 +1,8 @@
+<% if obj.errors.any?%>
+<div class="text-center" style="color:red;">
+<%=obj.errors.count %>件のエラーが発生しました。<br>
+<% obj.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+</div>
+<% end %>

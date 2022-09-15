@@ -14,13 +14,11 @@ class User::WordsController < ApplicationController
     if @word.save
       redirect_to words_path
     else
-
-      @word = Word.new
+      # @word = Word.new
       @page =  params[:page] ? (params[:page].to_i - 1) * 10 : 0
       @words = Word.page(params[:page]).per(10).order(created_at: :desc)
       render :index
       #renderを使う際、ビューの表示に必要なインスタンス変数を用意
-
     end
   end
 
