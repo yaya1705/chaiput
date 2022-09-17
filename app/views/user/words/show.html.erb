@@ -6,7 +6,7 @@
        <h4 class="text-center">
            <%= link_to users_profile_path(@word.user.id) do %>
            <%= @word.user.name %>
-           <%= image_tag @word.user.profile_image, size:"50x50"%>
+           <%= image_tag @word.user.profile_image, size:"50x50", class: "rounded-circle"%>
            <% end %>
         </h4>
        <div class="card shadow text-center " style="width: 20rem;">

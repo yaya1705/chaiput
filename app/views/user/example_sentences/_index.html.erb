@@ -6,7 +6,7 @@
        <p>
          <%= link_to users_profile_path(example_sentence.user.id) do %>
            <%= example_sentence.user.name %>
-           <%= image_tag example_sentence.user.profile_image, size:"40x40"%>
+           <%= image_tag example_sentence.user.profile_image, size:"40x40",  class: "rounded-circle"%>
          <% end %>
        </p>
        <!--<h5 class="card-title">【例文】</h5>-->
