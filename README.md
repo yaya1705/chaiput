@@ -16,12 +16,11 @@
 - 検索バーで単語を入力すると、それにヒットする単語と例文を表示できる
 
 ## 設計書
-<<<<<<< HEAD
 
-
-=======
 ![Untitled Diagram-Page-2 (2)](https://user-images.githubusercontent.com/66726846/184920448-fe5ad8a1-c8e5-4c82-b4de-c46c50f3e103.jpg)
->>>>>>> refs/remotes/origin/main
+
+![名称未設定ファイル](https://user-images.githubusercontent.com/66726846/190994897-8930606e-0306-465a-ab0e-b6f80284561c.jpg)
+
 
 ## 開発環境
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
